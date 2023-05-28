@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list argl;
 	int somme = 0;
-	char *arg;
+	char *arg, *db;
 
 	va_start(argl, format);
 
@@ -20,12 +20,13 @@ int _printf(const char *format, ...)
 	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
 		return (-1);
 	arg = va_arg(argl, char *);
-	for (arg = (char *)format; *arg; arg++)
+	for (arg = (char *)format; *arg ; arg++)
 	{
 		if (*arg != '%')
 		{	somme += _putchar(*arg);
 			continue;
 		}
+		db = arg;
 		arg++;
 		if (format[1] == 'c' || format[1] == '%')
 		{
