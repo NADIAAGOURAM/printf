@@ -29,7 +29,9 @@ int _printf(const char *format, ...)
 		arg++;
 		if (format[1] == 'c' || format[1] == '%')
 		{
-			_putchar(*arg);
+			c = va_arg(argl, int);
+			_putchar(c);
+			somme++;
 		}
 		else if (format[1] == 's')
 			print_string(*arg);
