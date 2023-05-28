@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
 		return (-1);
 	arg = va_arg(argl, char *);
-	for (; *arg ; arg++)
+	for (arg; *arg; arg++)
 	{
 		if (*arg != '%')
 		{	somme += _putchar(*arg);
