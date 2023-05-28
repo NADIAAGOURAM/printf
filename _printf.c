@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list argl;
 	int somme = 0;
-	char *arg, *db;
+	char *arg, c;
 
 	va_start(argl, format);
 
@@ -26,7 +26,6 @@ int _printf(const char *format, ...)
 		{	somme += _putchar(*arg);
 			continue;
 		}
-		db = arg;
 		arg++;
 		if (format[1] == 'c' || format[1] == '%')
 		{
@@ -35,5 +34,6 @@ int _printf(const char *format, ...)
 		else if (format[1] == 's')
 			print_string(*arg);
 	}
+	va_end(argl);
 	return (somme);
 }
