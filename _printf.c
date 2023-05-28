@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 		{
 			_putchar(*arg);
 		}
-		if (format[1] == 's')
+		else if (format[1] == 's')
 			print_string(*arg);
 	}
 	return (somme);
