@@ -26,10 +26,12 @@ int _printf(const char *format, ...)
 			continue;
 		}
 		arg++;
-		while (format[1] == 'c' || format[1] == 's' || format[1] == '%')
+		if (format[1] == 'c' || format[1] == '%')
 		{
 			_putchar(*arg);
 		}
+		if (format[1] == 's')
+			print_string(*arg);
 	}
 	return (somme);
 }
