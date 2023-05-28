@@ -17,24 +17,26 @@ int _printf(const char *format, ...)
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
-		return (-1);
+	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2])
+			return (-1);
 	arg = va_arg(argl, char *);
 	for (format; *format; format++)
 	{
 		if (*format != '%')
-		{	somme += _putchar(*format);
-			continue;
-		}
-		format++;
-		if (format[1] == 'c' || format[1] == '%')
 		{
-			c = va_arg(argl, int);
-			_putchar(c);
-			somme++;
+		somme++;
+		continue;
 		}
-		else if (format[1] == 's')
-			somme += print_string(*arg);
+		if (*format == 'c' || *format == '%')
+		{
+		c = va_arg(argl, int);
+		somme = _putchar(c);
+		}
+		else if (*format == 's')
+		{
+		print_string(arg);
+		somme++;
+		}
 	}
 	va_end(argl);
 	return (somme);
