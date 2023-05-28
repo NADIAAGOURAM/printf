@@ -20,13 +20,13 @@ int _printf(const char *format, ...)
 	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
 		return (-1);
 	arg = va_arg(argl, char *);
-	for (arg; *arg; arg++)
+	for (format; *format; format++)
 	{
-		if (*arg != '%')
-		{	somme += _putchar(*arg);
+		if (*format != '%')
+		{	somme += _putchar(*format);
 			continue;
 		}
-		arg++;
+		format++;
 		if (format[1] == 'c' || format[1] == '%')
 		{
 			c = va_arg(argl, int);
