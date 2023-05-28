@@ -39,9 +39,7 @@ int _printf(const char *format, ...)
 			{
 				somme += _putchar('%');
 				if (*format)
-				{
 					somme += _putchar(*format);
-				}
 			}
 		}
 		else
