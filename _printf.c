@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			somme++;
 		}
 		else if (format[1] == 's')
-			print_string(*arg);
+			somme += print_string(*arg);
 	}
 	va_end(argl);
 	return (somme);
