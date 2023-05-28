@@ -19,6 +19,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
 		return (-1);
+	arg = va_arg(argl, char *);
 	for (arg = (char *)format; *arg; arg++)
 	{
 		if (*arg != '%')
