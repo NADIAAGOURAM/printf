@@ -14,29 +14,40 @@ int _printf(const char *format, ...)
 	char *arg, c;
 
 	va_start(argl, format);
-
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2])
-			return (-1);
-	arg = va_arg(argl, char *);
-	for (format; *format; format++)
+	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
+		return (-1);
+	for (format ; *format ; format++)
 	{
-		if (*format != '%')
+		if (*format == '%')
 		{
-		somme++;
-		continue;
+			format++;
+			if (*format == 'c')
+			{
+				c = va_arg(argl, int);
+				somme += _putchar(c);
+			}
+			else if (*format == 's')
+			{
+				arg = va_arg(argl, char *);
+				somme += print_string(arg);
+			}
+			else if (*format == '%')
+				somme += _putchar('%');
+			else
+			{
+				somme += _putchar('%');
+				if (*format)
+				{
+					somme += _putchar(*format);
+				}
+			}
 		}
 		else
-		format++;
-		if (*format == 'c' || *format == '%')
 		{
-		c = va_arg(argl, int);
-		somme = _putchar(c);
-		}
-		else if (*format == 's')
-		{
-		somme += print_string(arg);
+			somme += _putchar(*format);
+			continue;
 		}
 	}
 	va_end(argl);
