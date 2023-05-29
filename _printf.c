@@ -34,6 +34,8 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == '%')
 				somme += _putchar('%');
+			else if (*format == 'i' || *format == 'd')
+				somme += print_numbers(va_arg(argl, int));
 			else
 			{
 				somme += _putchar('%');
