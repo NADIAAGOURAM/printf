@@ -64,7 +64,7 @@ int print_numbers(int n)
 		length += _putchar('0');
 		return (length);
 	}
-	if (n == -2147483648 )
+	if (n == -2147483648)
 	{
 		length += _putchar('-');
 		length += _putchar('2');
@@ -81,5 +81,44 @@ int print_numbers(int n)
 
 	length += _putchar((nb % 10) + '0');
 	return (length);
+}
+
+/**
+  * print_integers - prints an integer.
+  * @n: integer
+  * Return: length number
+ **/
+
+int print_integers(int n)
+{
+	int digit, divisor, count = 0;
+
+	if (n == -2147483648)
+	{
+		count += _putchar('-');
+		count += _putchar('2');
+		print_numbers(147483648);
+		return (1);
+	}
+	else if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+		count++;
+	}
+	divisor = 1;
+	while (n / divisor > 9)
+	{
+		divisor *= 10;
+	}
+	while (divisor > 0)
+	{
+		digit = n / divisor;
+		_putchar('0' + digit);
+		n %= divisor;
+		divisor /= 10;
+		count++;
+	}
+	return (count);
 }
 
