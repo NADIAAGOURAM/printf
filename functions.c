@@ -59,21 +59,26 @@ int print_numbers(int n)
 	int length = 0;
 
 	nb = n;
-
 	if (n == 0)
 	{
 		length += _putchar('0');
 		return (length);
 	}
-	if (n < 0)
+	if (n == -2147483648 )
+	{
+		length += _putchar('-');
+		length += _putchar('2');
+		print_numbers(147483648);
+		return (1);
+	}
+	else if (n < 0)
 	{
 		length += _putchar('-');
 		nb = -n;
 	}
 	if (nb / 10 != 0)
-	{
 		print_numbers(nb / 10);
-	}
+
 	length += _putchar((nb % 10) + '0');
 	return (length);
 }
