@@ -65,18 +65,16 @@ int print_numbers(int n)
 		length += _putchar('0');
 		return (length);
 	}
-
-    if (n < 0)
-    {
-        length += _putchar('-');
-        nb = -n;
-    }
-
-    if (nb / 10 != 0)
-    {
-        print_numbers(nb / 10);
-    }
-    length += _putchar((nb % 10) + '0');
-    return (length);
+	if (n < 0)
+	{
+		length += _putchar('-');
+		nb = -n;
+	}
+	if (nb / 10 != 0)
+	{
+		print_numbers(nb / 10);
+	}
+	length += _putchar((nb % 10) + '0');
+	return (length);
 }
 
