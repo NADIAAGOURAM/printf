@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 	va_list argl;
 	int num, somme = 0;
 	char *arg, c;
+	unsigned int b;
 
 	va_start(argl, format);
 	if (!format || (format[0] == '%' && !format[1]))
@@ -37,6 +38,11 @@ int _printf(const char *format, ...)
 			{
 				num = va_arg(argl, int);
 				somme += print_integers(num);
+			}
+			else if (*format == 'b')
+			{
+				b = va_arg(argl, unsigned int);
+				somme += print_binary(b);
 			}
 			else
 			{
