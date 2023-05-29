@@ -97,7 +97,7 @@ int print_integers(int n)
 	{
 		count += _putchar('-');
 		count += _putchar('2');
-		print_numbers(147483648);
+		print_integers(147483648);
 		return (1);
 	}
 	else if (n < 0)
