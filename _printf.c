@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'i' || *format == 'd')
 			{
 				num = va_arg(argl, int);
-				somme += print_numbers(num);
+				somme += print_integers(num);
 			}
 			else
 			{
