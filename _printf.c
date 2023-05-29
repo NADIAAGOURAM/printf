@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list argl;
-	int somme = 0;
+	int num, somme = 0;
 	char *arg, c;
 
 	va_start(argl, format);
@@ -34,7 +34,10 @@ int _printf(const char *format, ...)
 			else if (*format == '%')
 				somme += _putchar('%');
 			else if (*format == 'i' || *format == 'd')
-				somme += print_numbers(va_arg(argl, int));
+			{
+				num = va_arg(argl, int);
+				somme += print_numbers(num);
+			}
 			else
 			{
 				somme += _putchar('%');
