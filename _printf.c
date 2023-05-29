@@ -1,5 +1,3 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
 /**
 * _printf - produces output according to a format.
@@ -10,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list argl;
-	int somme = 0;
+	int num, somme = 0;
 	char *arg, c;
 
 	va_start(argl, format);
@@ -35,13 +33,16 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == '%')
 				somme += _putchar('%');
+			else if (*format == 'i' || *format == 'd')
+			{
+				num = va_arg(argl, int);
+				somme += print_integers(num);
+			}
 			else
 			{
 				somme += _putchar('%');
 				if (*format)
-				{
 					somme += _putchar(*format);
-				}
 			}
 		}
 		else
