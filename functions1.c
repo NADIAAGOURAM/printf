@@ -9,6 +9,8 @@ int print_binary(unsigned int b)
 {
 	int count = 0;
 
+	if (b == 0)
+                return (_putchar('0'));
 	if (b > 1)
 		count += print_binary(b / 2);
 	putchar('0' + b % 2);
