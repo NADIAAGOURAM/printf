@@ -9,6 +9,7 @@ int print_cases(const char *format, va_list argl)
 {
 	int num, somme = 0;
 	unsigned int b;
+	char c;
 
 	for ( ; *format ; format++)
 	{
@@ -16,7 +17,10 @@ int print_cases(const char *format, va_list argl)
 		{
 			format++;
 			if (*format == 'c')
-				somme += _putchar(va_arg(argl, int));
+			{
+				c = va_arg(argl, int);
+				somme += _putchar(c);
+			}
 			else if (*format == 's')
 				somme += print_string(argl);
 			else if (*format == '%')
