@@ -11,13 +11,11 @@ int _printf(const char *format, ...)
 	int somme = 0;
 
 	va_start(argl, format);
-	if (!format || (format[0] == '%' && !format[1]))
+	if (!format || (*format == '%' && !*format++))
 		return (-1);
 	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
 		return (-1);
-
 	somme += print_cases(format, argl);
-
 	va_end(argl);
 	return (somme);
 }
