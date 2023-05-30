@@ -47,7 +47,6 @@ int print_string(va_list argl)
   * @n: integer
   * Return: length number
  **/
-
 int print_integers(int n)
 {
 	int digit, divisor, count = 0;
