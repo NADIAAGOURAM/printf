@@ -44,10 +44,10 @@ int print_string(va_list argl)
 }
 /**
   * print_integers - prints an integer.
-  * @n: long integer
+  * @n: integer
   * Return: length number
  **/
-int print_integers(long int n)
+int print_integers(int n)
 {
 	int divisor, count = 0;
 
