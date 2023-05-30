@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_start(argl, format);
 	if (!format || (*format == '%' && !*format++))
 		return (-1);
-	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	somme += print_cases(format, argl);
 	va_end(argl);
