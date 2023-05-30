@@ -20,19 +20,3 @@ int print_binary(unsigned int b)
 		count += _putchar('0' + bits[i]);
 	return (count);
 }
-
-/**
-  * printUnsigned - print Unsigned
-  * @number:signed int
-  * Return: length number
- **/
-int printUnsigned(signed int number)
-{
-	int count = 0;
-
-	if (number > 9)
-		count += printUnsigned(number / 10);
-	putchar('0' + (number % 10));
-	count++;
-	return (count);
-}
