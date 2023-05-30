@@ -1,16 +1,13 @@
 #include "main.h"
-
 /**
  * _putchar - writes a character to stdout
  * @c:caracter
  * Return:1 on success On error -1
  */
-
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-
 /**
  *_strlen - return length of a string
  *@s: pointer char
@@ -24,7 +21,6 @@ int _strlen(char *s)
 		len++;
 	return (len);
 }
-
 /**
  *print_string - print string
  *@argl:arguments
@@ -46,43 +42,6 @@ int print_string(va_list argl)
 	}
 	return (_strlen(s));
 }
-
-/**
-  * print_numbers - prints an integer.
-  * @n:integer
-  * Return: length number
- **/
-
-int print_numbers(int n)
-{
-	unsigned int nb;
-	int length = 0;
-
-	nb = n;
-	if (n == 0)
-	{
-		length += _putchar('0');
-		return (length);
-	}
-	if (n == -2147483648)
-	{
-		length += _putchar('-');
-		length += _putchar('2');
-		print_numbers(147483648);
-		return (1);
-	}
-	else if (n < 0)
-	{
-		length += _putchar('-');
-		nb = -n;
-	}
-	if (nb / 10 != 0)
-		print_numbers(nb / 10);
-
-	length += _putchar((nb % 10) + '0');
-	return (length);
-}
-
 /**
   * print_integers - prints an integer.
   * @n: integer
@@ -120,4 +79,3 @@ int print_integers(int n)
 	}
 	return (count);
 }
-
