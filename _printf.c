@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
 		return (-1);
 
-	somme += print_cases(const char *format, va_list argl);
+	somme += print_cases(format, argl);
 
 	va_end(argl);
 	return (somme);
