@@ -15,5 +15,5 @@ int print_string(va_list argl);
 int print_integers(int n);
 int print_binary(unsigned int b);
 int print_cases(const char *format, va_list argl);
-
+int printf_r13(va_list argl);
 #endif
