@@ -7,24 +7,6 @@
  **/
 int print_binary(unsigned int b)
 {
-	int count = 0;
-
-	if (b == 0)
-                return (_putchar('0'));
-	if (b > 1)
-		count += print_binary(b / 2);
-	putchar('0' + b % 2);
-	count++;
-	return (count);
-}
-
-/**
- * print_bin - prints binary
- * @b:unsigned int
- * Return: length number
- **/
-int print_bin(unsigned int b)
-{
 	int i, count = 0, bits[32], index = 0;
 
 	if (b == 0)

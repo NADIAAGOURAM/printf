@@ -19,6 +19,5 @@ int printUnsigned(unsigned int number);
 int printHexadecimal(unsigned int number);
 int printOctal(unsigned int number);
 int print_cases(const char *format, va_list argl);
-int print_bin(unsigned int b);
 
 #endif
