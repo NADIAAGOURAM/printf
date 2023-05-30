@@ -31,7 +31,7 @@ int print_cases(const char *format, va_list argl)
 			else if (*format == 'b')
 			{
 				b = va_arg(argl, unsigned int);
-				somme += print_binary(b);
+				somme += print_bin(b);
 			}
 			else
 			{
