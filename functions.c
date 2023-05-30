@@ -21,21 +21,21 @@ int _strlen(char *s)
 	int len = 0;
 
 	while (*s++)
-	{
 		len++;
-	}
 	return (len);
 }
 
 /**
  *print_string - print string
- *@s: pointer char
- *Return: length string
+ *@argl:arguments
+ *Return: number of caractere printed
  */
-int print_string(char *s)
+int print_string(va_list argl)
 {
 	int i;
+	char *s;
 
+	s = va_arg(argl, char *);
 	if (s == NULL)
 	{
 		s = "(null)";
@@ -49,7 +49,7 @@ int print_string(char *s)
 
 /**
   * print_numbers - prints an integer.
-  * @n: integer
+  * @n:integer
   * Return: length number
  **/
 
@@ -102,9 +102,8 @@ int print_integers(int n)
 	}
 	else if (n < 0)
 	{
-		_putchar('-');
+		count += _putchar('-');
 		n = -n;
-		count++;
 	}
 	divisor = 1;
 	while (n / divisor > 9)

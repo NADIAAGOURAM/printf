@@ -8,55 +8,16 @@
 int _printf(const char *format, ...)
 {
 	va_list argl;
-	int num, somme = 0;
-	char *arg, c;
-	unsigned int b;
+	int somme = 0;
 
 	va_start(argl, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (!format || (format[0] == '%' && format[1] == ' ' && !format[2]))
 		return (-1);
-	for ( ; *format ; format++)
-	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format == 'c')
-			{
-				c = va_arg(argl, int);
-				somme += _putchar(c);
-			}
-			else if (*format == 's')
-			{
-				arg = va_arg(argl, char *);
-				somme += print_string(arg);
-			}
-			else if (*format == '%')
-				somme += _putchar('%');
-			else if (*format == 'i' || *format == 'd')
-			{
-				num = va_arg(argl, int);
-				somme += print_integers(num);
-			}
-			else if (*format == 'b')
-			{
-				b = va_arg(argl, unsigned int);
-				somme += print_binary(b);
-			}
-			else
-			{
-				somme += _putchar('%');
-				if (*format)
-					somme += _putchar(*format);
-			}
-		}
-		else
-		{
-			somme += _putchar(*format);
-			continue;
-		}
-	}
+
+	somme += print_cases(const char *format, va_list argl);
+
 	va_end(argl);
 	return (somme);
 }
