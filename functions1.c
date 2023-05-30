@@ -23,10 +23,10 @@ int print_binary(unsigned int b)
 
 /**
   * printUnsigned - print Unsigned
-  * @number:unsigned int
+  * @number:signed int
   * Return: length number
  **/
-int printUnsigned(unsigned int number)
+int printUnsigned(signed int number)
 {
 	int count = 0;
 
