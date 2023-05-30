@@ -12,7 +12,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int _strlen(char *s);
 int print_string(va_list argl);
-int print_integers(int n);
+int print_integers(long int n);
 int print_binary(unsigned int b);
 int printUnsigned(signed int number);
 int print_cases(const char *format, va_list argl);

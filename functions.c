@@ -44,12 +44,12 @@ int print_string(va_list argl)
 }
 /**
   * print_integers - prints an integer.
-  * @n: integer
+  * @n: long integer
   * Return: length number
  **/
-int print_integers(int n)
+int print_integers(long int n)
 {
-	int digit, divisor, count = 0;
+	int divisor, count = 0;
 
 	if (n == -2147483648)
 	{
@@ -70,8 +70,7 @@ int print_integers(int n)
 	}
 	while (divisor > 0)
 	{
-		digit = n / divisor;
-		_putchar('0' + digit);
+		_putchar('0' + n / divisor);
 		n %= divisor;
 		divisor /= 10;
 		count++;
