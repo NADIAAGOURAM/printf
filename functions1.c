@@ -20,3 +20,39 @@ int print_binary(unsigned int b)
 		count += _putchar('0' + bits[i]);
 	return (count);
 }
+/**
+ * printf_r13 - prints the reversed string
+ * @argl: type va_arg where is allocated printf arguments
+ * Return: cmp
+ *
+ */
+int printf_r13(va_list argl)
+{
+	int i, j, cmp = 0;
+	int k = 0;
+	char *str = va_arg(argl, char*);
+	char enOrdre[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char r13[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
+
+	if (str == NULL)
+		str = "(null)";
+	for (i = 0; str[i]; i++)
+	{
+		k = 0;
+		for (j = 0; enOrdre[j] && !k; j++)
+		{
+			if (str[i] == enOrdre[j])
+			{
+				_putchar(r13[j]);
+				cmp++;
+				k = 1;
+			}
+		}
+		if (!k)
+		{
+			_putchar(str[i]);
+			cmp++;
+		}
+	}
+	return (cmp);
+}
